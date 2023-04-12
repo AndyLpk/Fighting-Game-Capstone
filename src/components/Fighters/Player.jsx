@@ -8,7 +8,7 @@ import SamuraiIdleLeft from "../../assets/samuraiMack/Idleleft.png";
 import SamuraiAttack1 from "../../assets/samuraiMack/Attack1.png";
 import SamuraiAttack1Left from "../../assets/samuraiMack/Attack2.png";
 import SamuraiTakeHit from "../../assets/samuraiMack/Take Hit - white silhouette.png";
-import SamuraiDeath from "../../assets/samuraiMack/Death.png";
+import SamuraiDeath from "../../assets/samuraiMack/Death.png"
 
 function Player({ canvas, ctx, gravity }) {
     const player = new Fighter({
@@ -20,10 +20,6 @@ function Player({ canvas, ctx, gravity }) {
         x: 0,
         y: 0,
       },
-      // offset: {
-      //   x: 200,
-      //   y: 0,
-      // },
       isAttacking: false,
       ctx: ctx,
       canvas: canvas,

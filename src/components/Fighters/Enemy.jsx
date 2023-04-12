@@ -20,10 +20,6 @@ function Enemy({ canvas, ctx, gravity }) {
       x: 0,
       y: 0,
     },
-    // offset: {
-    //   x: -50,
-    //   y: 0,
-    // },
     color: "red",
     isAttacking: false,
     ctx: ctx,
