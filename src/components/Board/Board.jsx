@@ -2,7 +2,8 @@ import React, { useEffect, useRef } from "react";
 import "./Board.scss";
 // import Fighter from "../Fighter/Fighter";
 import { Animate } from "../Animate/Animate";
-import Player from "../Fighter/Player";
+import Player from "../Fighters/Player";
+import Enemy from "../Fighters/Enemy";
 
 function Board() {
   const canvasRef = useRef(null);
@@ -16,8 +17,9 @@ function Board() {
     canvas.height = 576;
     const gravity = 0.7;
     const player = new Player({ canvas, ctx, gravity });
+    const enemy = new Enemy({ canvas, ctx, gravity });
 
-    Animate({ canvas, ctx, player });
+    Animate({ canvas, ctx, player, enemy });
   }, []);
   return (
     <div className="board">
