@@ -1,0 +1,161 @@
+@use '../../styles/fonts' as *;
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    font-family: Minecraft;
+    margin: 0;
+    padding: 0;
+}
+
+.homepage {
+
+    position: relative;
+    display: inline-block;
+
+    &__title {
+        position: absolute;
+        font-size: 4rem;
+        left: 15%;
+        top: 15%;
+        font-feature-settings: "ss01" 1, "ss03" 1, "kern" 1, "dlig" 1;
+        animation: flicker 6s linear infinite;
+    }
+
+    @keyframes flicker {
+        0% {
+            /*3*/
+            opacity: 25%;
+            color: transparent;
+            text-shadow:
+                0 0 0.3vw #DC143C,
+                0 0 0.521vw #DC143C;
+        }
+
+        10% {
+            /*1*/
+            opacity: 75%;
+            color: #FF0000;
+            text-shadow:
+                0 0 1vw #DC143C,
+                0 0 2vw #DC143C,
+                0 0 2.5vw #DC143C,
+                0 0 3vw #DC143C,
+                0 0 4vw #DC143C;
+        }
+
+        36.7% {
+            /*1*/
+            opacity: 75%;
+            color: #FF0000;
+            text-shadow:
+                0 0 1vw #DC143C,
+                0 0 2vw #DC143C,
+                0 0 2.5vw #DC143C,
+                0 0 3vw #DC143C,
+                0 0 4vw #DC143C;
+        }
+
+        37.3% {
+            /*3*/
+            opacity: 25%;
+            color: transparent;
+            text-shadow:
+                0 0 0.3vw #DC143C,
+                0 0 0.521vw #DC143C;
+        }
+
+        60% {
+            /*2*/
+            color: #FF0000;
+            text-shadow:
+                0 0 0.3vw #FF0000,
+                0 0 0.521vw #FF0000,
+                0 0 1.094vw #FF0000,
+                0 0 2.188vw #DC143C,
+                0 0 4.271vw #DC143C,
+                0 0 4.792vw #DC143C,
+                0 0 5.313vw #DC143C,
+                0 0 7.865vw #DC143C;
+        }
+
+        80% {
+            /*1*/
+            opacity: 75%;
+            color: #FF0000;
+            text-shadow:
+                0 0 1vw #DC143C,
+                0 0 2vw #DC143C,
+                0 0 2.5vw #DC143C,
+                0 0 3vw #DC143C,
+                0 0 4vw #DC143C;
+        }
+
+        93.5% {
+            /*1*/
+            opacity: 75%;
+            color: #FF0000;
+            text-shadow:
+                0 0 1vw #DC143C,
+                0 0 2vw #DC143C,
+                0 0 2.5vw #DC143C,
+                0 0 3vw #DC143C,
+                0 0 4vw #DC143C;
+        }
+
+        98% {
+            /*3*/
+            opacity: 25%;
+            color: transparent;
+            text-shadow:
+                0 0 0.3vw #DC143C,
+                0 0 0.521vw #DC143C;
+        }
+
+        100% {
+            /*1*/
+            opacity: 75%;
+            color: #FF0000;
+            text-shadow:
+                0 0 1vw #DC143C,
+                0 0 2vw #DC143C,
+                0 0 2.5vw #DC143C,
+                0 0 3vw #DC143C,
+                0 0 4vw #DC143C;
+        }
+    }
+
+    &__subtitle {
+
+        position: absolute;
+        font-size: 2rem;
+        color: #323232;
+        left: 37%;
+        top: 40%;
+    }
+
+
+    &__button {
+
+        text-decoration: none;
+        position: absolute;
+        left: 40%;
+        top: 50%;
+        color: white;
+        font-size: 2rem;
+        border: solid black;
+        border-width: 1px 5px 5px 1px;
+        font-size: 3.75rem;
+        padding: 0.625rem 1.25rem 0.625rem 1.25rem;
+        cursor: pointer;
+        transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+
+    }
+
+    &__canvas {
+        border-radius: 1rem;
+    }
+}

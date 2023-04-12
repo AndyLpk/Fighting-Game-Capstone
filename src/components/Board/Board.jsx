@@ -9,6 +9,7 @@ import KeyUpListener from "../Utils/KeyUpListener";
 import HealthBar from "../HealthBar/HealthBar";
 import Result from "../Result/Result"
 import { decreaseTimer } from "../Utils/Utils";
+import Background from "../Background/Background";
 
 function Board() {
   const canvasRef = useRef(null);
@@ -24,6 +25,8 @@ function Board() {
 
     const player = new Player({ canvas, ctx, gravity }); //player component
     const enemy = new Enemy({ canvas, ctx, gravity }); //enemy component
+
+    const background = new Background({canvas,ctx})
 
     // to have a more accurate movement
     const keys = {
@@ -50,7 +53,7 @@ function Board() {
     let timerId;
     decreaseTimer(60, timerId, player, enemy); //decrease timer
 
-    Animate({ canvas, ctx, player, enemy, keys,timerId }); //animation component
+    Animate({ canvas, ctx, player, enemy, keys,timerId, background }); //animation component
 
     KeyDownListener({ player, enemy, keys }); //keydown event listener
 

@@ -1,0 +1,38 @@
+@use '../../styles/fonts' as *;
+
+.keymapping {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'silver';
+    font-size: 1.5rem;
+    padding-top: 1rem;
+}
+
+.keys {
+    padding: 0rem 1rem 1rem 1rem;
+    border: 2px solid white;
+    color: white;
+    width: 50%;
+}
+
+.key {
+    display: flex;
+    gap: 1rem;
+    position: absolute;
+    left: 3%;
+    top: 1%;
+
+    &__button {
+
+        text-decoration: none;
+
+        color: white;
+        font-size: 1rem;
+        border: solid black;
+        border-width: 1px 5px 5px 1px;
+        padding: 0.625rem 1.25rem 0.625rem 1.25rem;
+        cursor: pointer;
+        transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+
+    }
+}

@@ -3,7 +3,7 @@ function KeyDownListener({ player, enemy, keys }) {
   function HandleKeyDown(event) {
 
     // if player is dead stop movement for player
-    // if (!player.dead) {
+    if (!player.dead) {
       switch (event.key) {
         case "d":
           keys.d.pressed = true;
@@ -14,10 +14,10 @@ function KeyDownListener({ player, enemy, keys }) {
           player.lastKey = "a";
           break;
         case "w":
-          // if (!player.inTheAir) {
+          if (!player.inTheAir) {
             // Can only jump if it's not in the air.
             player.velocity.y = -20;
-          // }
+          }
 
           break;
         case "s":
@@ -27,10 +27,10 @@ function KeyDownListener({ player, enemy, keys }) {
         default:
           break;
       }
-    // }
+    }
 
     //if enemy is dead stop movement
-    // if (!enemy.dead) {
+    if (!enemy.dead) {
       switch (event.key) {
         case "ArrowRight":
           keys.ArrowRight.pressed = true;
@@ -41,10 +41,10 @@ function KeyDownListener({ player, enemy, keys }) {
           enemy.lastKey = "ArrowLeft";
           break;
         case "ArrowUp":
-          // if (!enemy.inTheAir) {
+          if (!enemy.inTheAir) {
             // Can only jump if it's not in the air.
             enemy.velocity.y = -20;
-          // }
+          }
           break;
         case "ArrowDown":
           keys.ArrowDown.pressed = true;
@@ -55,7 +55,7 @@ function KeyDownListener({ player, enemy, keys }) {
         default:
           break;
       }
-    // }
+    }
     // console.log(event.key);
   }
   return window.addEventListener("keydown", HandleKeyDown);

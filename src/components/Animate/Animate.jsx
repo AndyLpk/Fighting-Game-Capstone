@@ -1,11 +1,14 @@
 import Collision from "../Collision/Collision";
 import { determineWinner } from "../Utils/Utils";
 
-export function Animate({ ctx, canvas, player, enemy, keys, timerId }) {
+export function Animate({ ctx, canvas, player, enemy, keys, timerId, background }) {
   function animation() {
     window.requestAnimationFrame(animation); //to loop the animation function over and over again
     ctx.fillStyle = "#323232";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    background.update();
+
     player.update();
     enemy.update();
 
