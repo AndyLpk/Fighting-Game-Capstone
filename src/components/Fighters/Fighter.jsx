@@ -1,5 +1,5 @@
 class Fighter {
-  constructor({ position, ctx, canvas, gravity, velocity }) {
+  constructor({ position, ctx, canvas, gravity, velocity, color }) {
     this.position = position; //position on canvas
     this.ctx = ctx;
     this.canvas = canvas;
@@ -7,15 +7,25 @@ class Fighter {
     this.velocity = velocity; //gravity on canvas
     this.height = 150;
     this.width = 50;
+    this.attackBox = {
+      position: this.position,
+      width: 100,
+      height: 50,
+    };
+    this.color = color
   }
   draw() {
-    this.ctx.fillStyle = "red";
+    this.ctx.fillStyle = this.color;
     this.ctx.fillRect(
       this.position.x,
       this.position.y,
       this.width,
       this.height
     );
+
+    //attack box
+    this.ctx.fillStyle = "red"
+    this.ctx.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height )
   }
 
   update() {

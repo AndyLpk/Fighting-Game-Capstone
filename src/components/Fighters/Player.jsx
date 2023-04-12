@@ -13,6 +13,7 @@ function Player({ canvas, ctx, gravity }) {
     ctx: ctx,
     canvas: canvas,
     gravity: gravity,
+    color: "white",
   });
 
   return player;

@@ -13,6 +13,7 @@ function Enemy({ canvas, ctx, gravity }) {
     ctx: ctx,
     canvas: canvas,
     gravity: gravity,
+    color: "gray",
   });
 
   return enemy;
