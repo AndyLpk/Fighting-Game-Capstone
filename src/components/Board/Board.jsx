@@ -16,10 +16,11 @@ function Board() {
     canvas.width = 1024;
     canvas.height = 576;
     const gravity = 0.7;
-    const player = new Player({ canvas, ctx, gravity });
-    const enemy = new Enemy({ canvas, ctx, gravity });
+    
+    const player = new Player({ canvas, ctx, gravity }); //player component
+    const enemy = new Enemy({ canvas, ctx, gravity }); //enemy component
 
-    Animate({ canvas, ctx, player, enemy });
+    Animate({ canvas, ctx, player, enemy }); //animation component
   }, []);
   return (
     <div className="board">

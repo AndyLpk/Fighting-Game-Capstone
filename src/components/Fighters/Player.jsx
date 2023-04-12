@@ -6,6 +6,10 @@ function Player({ canvas, ctx, gravity }) {
       x: 50,
       y: 0,
     },
+    velocity: {
+      x: 0,
+      y: 0,
+    },
     ctx: ctx,
     canvas: canvas,
     gravity: gravity,
