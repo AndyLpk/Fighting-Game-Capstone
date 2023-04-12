@@ -27,6 +27,9 @@ export function Animate({ ctx, canvas, player, enemy, keys }) {
       player.isAttacking
     ) {
       player.isAttacking = false;
+
+      enemy.health -= 10;
+      document.querySelector("#enemyHealth").style.width = enemy.health + "%";
       console.log("Enemy Hit");
     }
 
@@ -46,6 +49,9 @@ export function Animate({ ctx, canvas, player, enemy, keys }) {
       enemy.isAttacking
     ) {
       enemy.isAttacking = false;
+      player.health -= 10;
+
+      document.querySelector("#playerHealth").style.width = player.health + "%";
       console.log("Player Hit");
     }
   }

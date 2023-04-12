@@ -1,0 +1,25 @@
+.board {
+    position: relative;
+    display: inline-block;
+
+
+    &__canvas {
+        border-radius: 1rem;
+    }
+
+    &__player1 {
+        position: absolute;
+        top: 15%;
+        left: 3.5%;
+        font-size: 1rem;
+        color: white;
+    }
+
+    &__player2 {
+        position: absolute;
+        top: 15%;
+        right: 3.5%;
+        font-size: 1rem;
+        color: white;
+    }
+}

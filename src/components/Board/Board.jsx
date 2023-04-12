@@ -6,6 +6,7 @@ import Player from "../Fighters/Player";
 import Enemy from "../Fighters/Enemy";
 import KeyDownListener from "../Utils/KeyDownListener";
 import KeyUpListener from "../Utils/KeyUpListener";
+import HealthBar from "../HealthBar/HealthBar";
 
 function Board() {
   const canvasRef = useRef(null);
@@ -44,14 +45,17 @@ function Board() {
       },
     };
 
-    Animate({ canvas, ctx, player, enemy,keys }); //animation component
+    Animate({ canvas, ctx, player, enemy, keys }); //animation component
 
-    KeyDownListener({player, enemy, keys}); //keydown event listener
+    KeyDownListener({ player, enemy, keys }); //keydown event listener
 
-    KeyUpListener({keys}); //keyup event listener
+    KeyUpListener({ keys }); //keyup event listener
   }, []);
   return (
     <div className="board">
+      <div className="board__player1">Player 1</div>
+      <div className="board__player2">Player 2</div>
+      <HealthBar />
       <canvas id="canvas" ref={canvasRef} className="board__canvas" />
     </div>
   );
