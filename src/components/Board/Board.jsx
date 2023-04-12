@@ -44,7 +44,7 @@ function Board() {
       },
     };
 
-    Animate({ canvas, ctx, player, enemy }); //animation component
+    Animate({ canvas, ctx, player, enemy,keys }); //animation component
 
     KeyDownListener({player, enemy, keys}); //keydown event listener
 
