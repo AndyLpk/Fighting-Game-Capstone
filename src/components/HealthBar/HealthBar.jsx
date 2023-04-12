@@ -7,7 +7,7 @@ function HealthBar() {
         <div className="board__player"></div>
         <div id="playerHealth" className="board__player-health"></div>
       </div>
-      <div id="timer" className="board__timer"></div>
+      <div id="timer" className="board__timer">10</div>
       <div className="board__container">
         <div className="board__enemy"></div>
         <div id="enemyHealth" className="board__enemy-health"></div>

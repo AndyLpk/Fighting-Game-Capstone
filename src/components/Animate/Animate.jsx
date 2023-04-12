@@ -1,6 +1,7 @@
 import Collision from "../Collision/Collision";
+import { determineWinner } from "../Utils/Utils";
 
-export function Animate({ ctx, canvas, player, enemy, keys }) {
+export function Animate({ ctx, canvas, player, enemy, keys, timerId }) {
   function animation() {
     window.requestAnimationFrame(animation); //to loop the animation function over and over again
     ctx.fillStyle = "#323232";
@@ -53,6 +54,12 @@ export function Animate({ ctx, canvas, player, enemy, keys }) {
 
       document.querySelector("#playerHealth").style.width = player.health + "%";
       console.log("Player Hit");
+    }
+
+    //end game based on health
+    if (enemy.health <= 0 || player.health <= 0) {
+      console.log("player", player);
+      determineWinner(player, enemy, timerId);  //get the winner at the end
     }
   }
   animation();

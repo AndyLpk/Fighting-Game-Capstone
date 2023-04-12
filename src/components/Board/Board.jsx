@@ -7,6 +7,8 @@ import Enemy from "../Fighters/Enemy";
 import KeyDownListener from "../Utils/KeyDownListener";
 import KeyUpListener from "../Utils/KeyUpListener";
 import HealthBar from "../HealthBar/HealthBar";
+import Result from "../Result/Result"
+import { decreaseTimer } from "../Utils/Utils";
 
 function Board() {
   const canvasRef = useRef(null);
@@ -45,7 +47,10 @@ function Board() {
       },
     };
 
-    Animate({ canvas, ctx, player, enemy, keys }); //animation component
+    let timerId;
+    decreaseTimer(60, timerId, player, enemy); //decrease timer
+
+    Animate({ canvas, ctx, player, enemy, keys,timerId }); //animation component
 
     KeyDownListener({ player, enemy, keys }); //keydown event listener
 
@@ -56,6 +61,7 @@ function Board() {
       <div className="board__player1">Player 1</div>
       <div className="board__player2">Player 2</div>
       <HealthBar />
+      <Result />
       <canvas id="canvas" ref={canvasRef} className="board__canvas" />
     </div>
   );
