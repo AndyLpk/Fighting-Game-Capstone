@@ -4,6 +4,7 @@ import "./Board.scss";
 import { Animate } from "../Animate/Animate";
 import Player from "../Fighters/Player";
 import Enemy from "../Fighters/Enemy";
+import KeyDownListener from "../Utils/KeyDownListener";
 
 function Board() {
   const canvasRef = useRef(null);
@@ -16,11 +17,35 @@ function Board() {
     canvas.width = 1024;
     canvas.height = 576;
     const gravity = 0.7;
-    
+
     const player = new Player({ canvas, ctx, gravity }); //player component
     const enemy = new Enemy({ canvas, ctx, gravity }); //enemy component
 
+    // to have a more accurate movement
+    const keys = {
+      a: {
+        pressed: false,
+      },
+      d: {
+        pressed: false,
+      },
+      s: {
+        pressed: false,
+      },
+      ArrowLeft: {
+        pressed: false,
+      },
+      ArrowRight: {
+        pressed: false,
+      },
+      ArrowDown: {
+        pressed: false,
+      },
+    };
+
     Animate({ canvas, ctx, player, enemy }); //animation component
+
+    KeyDownListener({player, enemy, keys}); //keydown event listener
   }, []);
   return (
     <div className="board">
