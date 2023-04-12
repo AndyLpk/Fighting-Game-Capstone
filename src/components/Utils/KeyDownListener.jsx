@@ -1,5 +1,3 @@
-// import React from 'react'
-
 function KeyDownListener({ player, enemy, keys }) {
 
   function HandleKeyDown(event) {

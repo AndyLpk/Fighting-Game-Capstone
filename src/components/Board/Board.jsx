@@ -5,6 +5,7 @@ import { Animate } from "../Animate/Animate";
 import Player from "../Fighters/Player";
 import Enemy from "../Fighters/Enemy";
 import KeyDownListener from "../Utils/KeyDownListener";
+import KeyUpListener from "../Utils/KeyUpListener";
 
 function Board() {
   const canvasRef = useRef(null);
@@ -46,6 +47,8 @@ function Board() {
     Animate({ canvas, ctx, player, enemy }); //animation component
 
     KeyDownListener({player, enemy, keys}); //keydown event listener
+
+    KeyUpListener({keys}); //keyup event listener
   }, []);
   return (
     <div className="board">
