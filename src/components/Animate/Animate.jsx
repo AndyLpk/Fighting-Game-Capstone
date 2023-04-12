@@ -1,3 +1,5 @@
+import Collision from "../Collision/Collision";
+
 export function Animate({ ctx, canvas, player, enemy, keys }) {
   function animation() {
     window.requestAnimationFrame(animation); //to loop the animation function over and over again
@@ -16,11 +18,35 @@ export function Animate({ ctx, canvas, player, enemy, keys }) {
       player.velocity.x = 5;
     }
 
+    //detect collision on enemy
+    if (
+      Collision({
+        hitBox1: player,
+        hitBox2: enemy,
+      }) &&
+      player.isAttacking
+    ) {
+      player.isAttacking = false;
+      console.log("Enemy Hit");
+    }
+
     //Enemy Movement
     if (keys.ArrowLeft.pressed && enemy.lastKey === "ArrowLeft") {
       enemy.velocity.x = -5;
     } else if (keys.ArrowRight.pressed && enemy.lastKey === "ArrowRight") {
       enemy.velocity.x = 5;
+    }
+
+    //detect collision on player
+    if (
+      Collision({
+        hitBox1: enemy,
+        hitBox2: player,
+      }) &&
+      enemy.isAttacking
+    ) {
+      enemy.isAttacking = false;
+      console.log("Player Hit");
     }
   }
   animation();

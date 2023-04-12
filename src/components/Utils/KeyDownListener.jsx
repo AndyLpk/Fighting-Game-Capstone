@@ -21,7 +21,6 @@ function KeyDownListener({ player, enemy, keys }) {
 
           break;
         case "s":
-          // player.attack();
           keys.s.pressed = true;
           player.lastKey = "s";
           break;

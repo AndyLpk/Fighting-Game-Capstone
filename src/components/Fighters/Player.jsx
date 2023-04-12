@@ -10,6 +10,10 @@ function Player({ canvas, ctx, gravity }) {
       x: 0,
       y: 0,
     },
+    offset: {
+      x: 0,
+      y:0,
+    },
     ctx: ctx,
     canvas: canvas,
     gravity: gravity,

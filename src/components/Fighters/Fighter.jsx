@@ -1,5 +1,5 @@
 class Fighter {
-  constructor({ position, ctx, canvas, gravity, velocity, color }) {
+  constructor({ position, ctx, canvas, gravity, velocity, color, offset }) {
     this.position = position; //position on canvas
     this.ctx = ctx;
     this.canvas = canvas;
@@ -8,11 +8,16 @@ class Fighter {
     this.height = 150;
     this.width = 50;
     this.attackBox = {
-      position: this.position,
+      position: {
+        x:this.position.x,
+        y: this.position.y,
+      },
+      offset,
       width: 100,
       height: 50,
     };
-    this.color = color
+    this.color = color;
+    this.isAttacking = false;
   }
   draw() {
     this.ctx.fillStyle = this.color;
@@ -24,12 +29,23 @@ class Fighter {
     );
 
     //attack box
-    this.ctx.fillStyle = "red"
-    this.ctx.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height )
+    if (this.isAttacking) {
+      this.ctx.fillStyle = "red";
+      this.ctx.fillRect(
+        this.attackBox.position.x,
+        this.attackBox.position.y,
+        this.attackBox.width,
+        this.attackBox.height
+      );
+    }
   }
 
   update() {
     this.draw();
+
+    //attack box
+    this.attackBox.position.x = this.position.x + this.attackBox.offset.x;
+    this.attackBox.position.y = this.position.y + this.attackBox.offset.y;
 
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
@@ -41,6 +57,13 @@ class Fighter {
       // Sprite is in the air, gets affected by gravity.
       this.velocity.y += this.gravity; // Add gravity speed to the sprite every frame to slow it down.
     }
+  }
+
+  attack() {
+    this.isAttacking = true;
+    setTimeout(() => {
+      this.isAttacking = false;
+    }, 100);
   }
 }
 
