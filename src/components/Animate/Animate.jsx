@@ -1,13 +1,14 @@
 import Collision from "../Collision/Collision";
 import { determineWinner } from "../Utils/Utils";
 
-export function Animate({ ctx, canvas, player, enemy, keys, timerId, background }) {
+export function Animate({ ctx, canvas, player, enemy, keys, timerId, background, shop }) {
   function animation() {
     window.requestAnimationFrame(animation); //to loop the animation function over and over again
     ctx.fillStyle = "#323232";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     background.update();
+    shop.update();
 
     player.update();
     enemy.update();
@@ -24,8 +25,6 @@ export function Animate({ ctx, canvas, player, enemy, keys, timerId, background 
       player.switchSprite("run");
     }
     // to flip image if character switch side
-    //
-    //NEED TO REFACTOR THIS FOR ATTACKING AND JUMPING ALSO
     else if (
       player.position.x + player.width >=
       enemy.position.x + enemy.width

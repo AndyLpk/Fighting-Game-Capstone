@@ -1,9 +1,8 @@
 import React, { useEffect, useRef } from "react";
-import Sprite from "../Sprite/Sprite";
 import "./HomePage.scss";
 
-import BackgroundImg from "../../assets/background1.png";
 import { Link } from "react-router-dom";
+import Background from "../Background/Background";
 
 function HomePage() {
   const canvasRef = useRef(null);
@@ -14,15 +13,7 @@ function HomePage() {
     canvas.width = 1024;
     canvas.height = 576;
 
-    const background = new Sprite({
-      position: {
-        x: 0,
-        y: 0,
-      },
-      imageSrc: BackgroundImg,
-      ctx: ctx,
-      canvas: canvas,
-    });
+    const background = new Background({ ctx, canvas });
 
     function animate() {
       window.requestAnimationFrame(animate);

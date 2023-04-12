@@ -10,6 +10,8 @@ import HealthBar from "../HealthBar/HealthBar";
 import Result from "../Result/Result"
 import { decreaseTimer } from "../Utils/Utils";
 import Background from "../Background/Background";
+import KeyInformation from "../KeyInformation/KeyInformation";
+import Shop from "../Background/Shop";
 
 function Board() {
   const canvasRef = useRef(null);
@@ -26,7 +28,8 @@ function Board() {
     const player = new Player({ canvas, ctx, gravity }); //player component
     const enemy = new Enemy({ canvas, ctx, gravity }); //enemy component
 
-    const background = new Background({canvas,ctx})
+    const background = new Background({canvas,ctx}); //background img
+    const shop = new Shop({canvas,ctx}); //shop background
 
     // to have a more accurate movement
     const keys = {
@@ -53,7 +56,7 @@ function Board() {
     let timerId;
     decreaseTimer(60, timerId, player, enemy); //decrease timer
 
-    Animate({ canvas, ctx, player, enemy, keys,timerId, background }); //animation component
+    Animate({ canvas, ctx, player, enemy, keys,timerId, background, shop }); //animation component
 
     KeyDownListener({ player, enemy, keys }); //keydown event listener
 
@@ -66,6 +69,7 @@ function Board() {
       <HealthBar />
       <Result />
       <canvas id="canvas" ref={canvasRef} className="board__canvas" />
+      <KeyInformation />
     </div>
   );
 }
