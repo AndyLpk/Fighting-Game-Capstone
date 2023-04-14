@@ -1,5 +1,6 @@
 import React from "react";
-import './KeyInformation.scss'
+import './KeyInformation.scss';
+
 
 function KeyInformation() {
   return (

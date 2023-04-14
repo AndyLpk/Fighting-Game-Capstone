@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import "./Board.scss";
-// import Fighter from "../Fighter/Fighter";
 import { Animate } from "../Animate/Animate";
 import Player from "../Fighters/Player";
 import Enemy from "../Fighters/Enemy";
